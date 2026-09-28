@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply bg-foodco-bg font-outfit text-foodco-text;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* ─── Multi-line clamp ─── */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ─── Scrollbar hide ─── */
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* ─── Scroll snap utilities ─── */
+.snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.snap-start {
+    scroll-snap-align: start;
+}
+
+/* ─── Press / tap animation ─── */
+@keyframes press {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.97); }
+    100% { transform: scale(1); }
+}
+.animate-press {
+    animation: press 150ms ease-in-out;
+}
+
+/* ─── Shimmer skeleton animation ─── */
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.skeleton {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
+
+
+/* ─── Horizontal scroll row — hide webkit scrollbar ─── */
+[data-hsr]::-webkit-scrollbar {
+    display: none;
+}
+
+/* ─── Gradient text utility ─── */
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
